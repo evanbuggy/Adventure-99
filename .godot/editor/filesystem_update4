@@ -1,0 +1,7 @@
+res://Scenes/purro.tscn
+res://Scenes/test_grounds_g4.tscn
+res://Scenes/test_enemy.tscn
+res://Scenes/player.tscn
+res://Scenes/Main.tscn
+res://Scripts/purro.gd
+res://Scenes/test_enemy.gd

@@ -18,7 +18,7 @@ func _on_player_current_velocity(player_velocity):
 	enemy_vuln_store.x = player_velocity.x 
 	enemy_vuln_store.z = player_velocity.z
 
-func _on_hurtbox_area_entered(area):
+func _on_hurtbox_area_entered(_area):
 	enemy_hit = true
 
 func _physics_process(delta):

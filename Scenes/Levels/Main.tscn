@@ -1,9 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://chv43q7qq267o"]
+[gd_scene load_steps=19 format=3 uid="uid://cjkasidgc21ct"]
 
-[ext_resource type="PackedScene" uid="uid://oo8manmhyfhr" path="res://Scenes/test_grounds_g4.tscn" id="1_72lq8"]
-[ext_resource type="PackedScene" uid="uid://bbuj2hd6rhifi" path="res://Scenes/player.tscn" id="1_e506i"]
+[ext_resource type="PackedScene" uid="uid://oo8manmhyfhr" path="res://Scenes/Models/test_grounds_g4.tscn" id="1_72lq8"]
+[ext_resource type="PackedScene" uid="uid://bbuj2hd6rhifi" path="res://Scenes/Objects/player.tscn" id="1_e506i"]
 [ext_resource type="Texture2D" uid="uid://dfsy1glhxhjbu" path="res://Textures/test_tex2.png" id="2_f18dv"]
-[ext_resource type="PackedScene" uid="uid://bwtum7kojghr7" path="res://Scenes/purro.tscn" id="2_p3d08"]
+[ext_resource type="PackedScene" uid="uid://c1euukycsga2k" path="res://Scenes/Objects/purro.tscn" id="2_p3d08"]
 [ext_resource type="Environment" path="res://world_env.tres" id="3"]
 [ext_resource type="Texture2D" uid="uid://bsq25d5t1y6u7" path="res://Textures/test_tex1.png" id="3_tqytb"]
 [ext_resource type="Texture2D" uid="uid://2plkrdfkjjrj" path="res://Textures/test_tex3.png" id="6_hxtuf"]

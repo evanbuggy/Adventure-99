@@ -10,8 +10,8 @@ config_version=5
 
 [application]
 
-config/name="3dmovementG4"
-run/main_scene="res://Scenes/Main.tscn"
+config/name="Adventure-99"
+run/main_scene="res://Scenes/Levels/Main.tscn"
 config/features=PackedStringArray("4.0")
 
 [display]

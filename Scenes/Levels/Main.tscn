@@ -1,9 +1,12 @@
-[gd_scene load_steps=19 format=3 uid="uid://cjkasidgc21ct"]
+[gd_scene load_steps=22 format=3 uid="uid://cjkasidgc21ct"]
 
+[ext_resource type="PackedScene" uid="uid://b8x4lv48t0hge" path="res://Scenes/Objects/meter_juice.tscn" id="1_3wpdr"]
 [ext_resource type="PackedScene" uid="uid://oo8manmhyfhr" path="res://Scenes/Models/test_grounds_g4.tscn" id="1_72lq8"]
+[ext_resource type="PackedScene" uid="uid://cafp0sv3ehak0" path="res://Scenes/Objects/meter.tscn" id="1_asjep"]
 [ext_resource type="PackedScene" uid="uid://bbuj2hd6rhifi" path="res://Scenes/Objects/player.tscn" id="1_e506i"]
 [ext_resource type="Texture2D" uid="uid://dfsy1glhxhjbu" path="res://Textures/test_tex2.png" id="2_f18dv"]
 [ext_resource type="PackedScene" uid="uid://c1euukycsga2k" path="res://Scenes/Objects/purro.tscn" id="2_p3d08"]
+[ext_resource type="PackedScene" uid="uid://cyyjc1lky7wyl" path="res://Scenes/Objects/meter_num.tscn" id="2_sl52b"]
 [ext_resource type="Environment" path="res://world_env.tres" id="3"]
 [ext_resource type="Texture2D" uid="uid://bsq25d5t1y6u7" path="res://Textures/test_tex1.png" id="3_tqytb"]
 [ext_resource type="Texture2D" uid="uid://2plkrdfkjjrj" path="res://Textures/test_tex3.png" id="6_hxtuf"]
@@ -45,6 +48,12 @@ uv1_triplanar = true
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
 [node name="Main" type="Node"]
+
+[node name="meter_juice" parent="." instance=ExtResource("1_3wpdr")]
+
+[node name="Meter" parent="." instance=ExtResource("1_asjep")]
+
+[node name="Number" parent="." instance=ExtResource("2_sl52b")]
 
 [node name="Player" parent="." instance=ExtResource("1_e506i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 32.9358, 0)
@@ -207,3 +216,4 @@ transform = Transform3D(60.1563, 0, 0, 0, 25.4614, 0, 0, 0, 62.8125, 0, 25.7807,
 shape = SubResource("ConcavePolygonShape3D_r8078")
 
 [connection signal="current_velocity" from="Player" to="Purro" method="_on_player_current_velocity"]
+[connection signal="meter_change" from="Player" to="Number" method="_on_player_meter_change"]

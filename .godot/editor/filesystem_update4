@@ -1,4 +1,5 @@
-res://Scenes/player.tscn
-res://Scenes/Main.tscn
-res://Scenes/purro.tscn
 res://Scenes/Levels/Main.tscn
+res://Scenes/Objects/meter_num.tscn
+res://Scenes/Objects/player.tscn
+res://Scripts/analog_control.gd
+res://Scripts/camera_control.gd

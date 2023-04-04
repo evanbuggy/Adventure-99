@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://cafp0sv3ehak0"]
+
+[ext_resource type="Texture2D" uid="uid://crb2rl8lst3tk" path="res://Textures/meter.png" id="1_txan8"]
+
+[node name="Meter" type="MarginContainer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -648.0
+offset_top = -324.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Container" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_txan8")
+expand_mode = 1

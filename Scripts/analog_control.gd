@@ -3,6 +3,7 @@ extends CharacterBody3D
 signal current_velocity(player_velocity)
 signal current_dir(player_dir)
 signal current_speed(player_speed)
+signal meter_change(meter)
 
 # Initial Variables. Mainly focused around movement
 @export var move_input := Vector3.ZERO
@@ -13,11 +14,14 @@ signal current_speed(player_speed)
 @export var move_gravity := 200
 @export var move_shoot_timer := 0
 @export var move_landing := 0
-@export var move_meter := 0
 @export var vec_store := 0
 @export var anim_store := "anim_player_jump"
 @export var anim_frame_count := 0
 @export var vec_array_store = [Vector3.ZERO, Vector3.ZERO]
+@export var meter := 5
+@export var meter_charge = 500
+@export var air_dash_uses := 2
+@export var allowed_to_recharge := true
 
 @export var move_velocity := Vector3.ZERO
 var move_snap := 0
@@ -33,6 +37,14 @@ func _ready():
 	InputMap.action_set_deadzone("stick_down", 0.1)
 
 func _physics_process(delta):
+	# Handles meter recharging.
+	if meter_charge < 500 && meter < 5 && allowed_to_recharge:
+		meter_charge += 1
+		if meter_charge % 100 == 0 && meter_charge > 0:
+			meter += 1
+			emit_signal("meter_change", meter)
+			print(meter_charge)
+			print(meter)
 	
 	# Handles what direction is being inputted.
 	move_input.x = Input.get_action_strength("stick_right") - Input.get_action_strength("stick_left")
@@ -62,6 +74,17 @@ func _physics_process(delta):
 		# Checks to see if the player switches direction fast enough to apply deceleration.
 		if (move_input.x - move_previous_input.x > 0.3 || move_input.x - move_previous_input.x < -0.3 || move_input.z - move_previous_input.z > 0.3 || move_input.z - move_previous_input.z < -0.3) && move_speed > 13:
 			move_skid = 1
+			
+		# Resetting the snap vector.
+		if move_snap == 0:
+			air_dash_uses = 2
+			allowed_to_recharge = true
+			move_snap = 2
+			move_landing = 30
+			vec_store = 0
+			# If the player is not inputting anything on the stick while landing then set the speed to 0.
+			if Vector3.ZERO.distance_to(move_input) < 0.2 * sqrt(2.0):
+				move_speed = 0
 		
 		# ! Handles what kind of jump to perform before we enter the air.
 		# ! There is definitely a better way of doing this as of now.
@@ -72,20 +95,15 @@ func _physics_process(delta):
 			anim_store = "anim_player_jump"
 			anim_frame_count = 5
 		
-		# Resetting the snap vector.
-		if move_snap == 0:
-			move_snap = 2
-			move_landing = 30
-			vec_store = 0
-			# If the player is not inputting anything on the stick while landing then set the speed to 0.
-			if Vector3.ZERO.distance_to(move_input) < 0.2 * sqrt(2.0):
-				move_speed = 0
-		
-		if Vector2.ZERO.distance_to(Vector2(move_velocity.x, move_velocity.z)) > 100 && Input.is_action_just_pressed("pad_shoulder_l"):
+		if Vector2.ZERO.distance_to(Vector2(move_velocity.x, move_velocity.z)) > 100 && Input.is_action_just_pressed("pad_shoulder_l") && meter >= 2:
 			move_velocity.y = 110
 			move_snap = 0
 			vec_store = 1
+			meter -= 2
+			meter_charge = -200
+			emit_signal("meter_change", meter)
 			anim_frame_count = 900
+			allowed_to_recharge = false
 			anim_store = "anim_player_cartwheel_jump"
 		
 		# Moves the player if not skidding. Extra deadzone added here.
@@ -138,20 +156,40 @@ func _physics_process(delta):
 			$AnimationPlayer.play(anim_store)
 		
 		# Air dash.
-		if Input.is_action_just_pressed("pad_action_1") and move_speed >= 64 and Vector3.ZERO.distance_to(move_dir) > 0.6 * sqrt(2.0):
-			anim_frame_count = 0
-			move_dir = move_input
-			move_speed = 110
-			move_velocity.y = 50
-			vec_store = 0
-			$Pivot.look_at(position + move_dir.rotated(Vector3.UP, 1.5 * PI), Vector3.UP)
-			$AnimationPlayer.play("anim_player_air_dash")
+		if Input.is_action_just_pressed("pad_action_1") and move_speed >= 64 and Vector3.ZERO.distance_to(move_dir) > 0.6 * sqrt(2.0) && air_dash_uses != 0:
+			if air_dash_uses == 2:
+				anim_frame_count = 0
+				move_dir = move_input
+				move_speed = 110
+				move_velocity.y = 50
+				vec_store = 0
+				air_dash_uses -= 1
+				$Pivot.look_at(position + move_dir.rotated(Vector3.UP, 1.5 * PI), Vector3.UP)
+				$AnimationPlayer.play("anim_player_air_dash")
+			else:
+				if meter >= 1:
+					meter_charge = -200
+					meter -= 1
+					emit_signal("meter_change", meter)
+					allowed_to_recharge = false
+					anim_frame_count = 0
+					move_dir = move_input
+					move_speed = 110
+					move_velocity.y = 50
+					vec_store = 0
+					air_dash_uses -= 1
+					$Pivot.look_at(position + move_dir.rotated(Vector3.UP, 1.5 * PI), Vector3.UP)
+					$AnimationPlayer.play("anim_player_air_dash")
 		
 		# Divekick.
-		if Input.is_action_just_pressed("pad_action_2"):
+		if Input.is_action_just_pressed("pad_action_2") && meter >= 1:
 			anim_frame_count = 0
+			meter -= 1
+			emit_signal("meter_change", meter)
+			allowed_to_recharge = false
 			move_velocity.y -= 90
 			move_speed += 20
+			meter_charge = -200
 			$AnimationPlayer.play("anim_player_dive")
 		
 		if is_on_wall():

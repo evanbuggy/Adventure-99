@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://dmscn7uhdalgx"]
+
+[ext_resource type="PackedScene" path="res://Scenes/Objects/meter_juice.tscn" id="1_bxxua"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/meter.tscn" id="2_0m0bl"]
+[ext_resource type="PackedScene" uid="uid://rsj81jg66oux" path="res://Scenes/Objects/meter_num.tscn" id="3_885bv"]
+[ext_resource type="PackedScene" uid="uid://bpyyfw4herrvm" path="res://Scenes/Models/creek.tscn" id="4_4drxd"]
+[ext_resource type="PackedScene" uid="uid://465m0or5ipt0" path="res://Scenes/Objects/player.tscn" id="5_1deql"]
+[ext_resource type="Environment" uid="uid://sq6fynppreqn" path="res://world_env.tres" id="6_pgmq4"]
+
+[node name="lvl_creek" type="Node"]
+
+[node name="meter_juice" parent="." instance=ExtResource("1_bxxua")]
+
+[node name="Meter" parent="." instance=ExtResource("2_0m0bl")]
+
+[node name="Number" parent="." instance=ExtResource("3_885bv")]
+
+[node name="Player" parent="." instance=ExtResource("5_1deql")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 19.3336, 0)
+
+[node name="Creek" parent="." instance=ExtResource("4_4drxd")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.783899, -0.310444, 0.537705, -5.93629e-10, 0.866025, 0.5, -0.620888, -0.39195, 0.678877, -59, 407.327, 593.684)
+light_energy = 3.0
+light_bake_mode = 0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("6_pgmq4")
+
+[connection signal="meter_change" from="Player" to="Number" method="_on_player_meter_change"]

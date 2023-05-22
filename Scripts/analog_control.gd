@@ -22,9 +22,9 @@ signal meter_change(meter)
 @export var meter_charge = 500
 @export var air_dash_uses := 2
 @export var allowed_to_recharge := true
-
 @export var move_velocity := Vector3.ZERO
 var move_snap := 0
+var dust = preload("res://Scenes/Particles/dust_footstep.tscn")
 
 # Caches SpringArm3D.
 @onready var cache_spring_arm: SpringArm3D = $SpringArm3D
@@ -117,6 +117,8 @@ func _physics_process(delta):
 			if move_shoot_timer == 0:
 				if Vector3.ZERO.distance_to(move_input) > 0.4 * sqrt(2.0):
 					$AnimationPlayer.play("anim_player_run", -1, Vector3.ZERO.distance_to(move_input), false)
+					if ($AnimationPlayer.current_animation_position > 0.09 && $AnimationPlayer.current_animation_position < 0.11) || ($AnimationPlayer.current_animation_position > 0.24 && $AnimationPlayer.current_animation_position < 0.26):
+						add_child(dust.instantiate())
 				else:
 					$AnimationPlayer.play("anim_player_walk")
 			
@@ -199,7 +201,7 @@ func _physics_process(delta):
 				move_velocity.y = 80
 				move_dir = move_dir.bounce(get_wall_normal())
 				vec_store = 0
-				$Pivot.look_at(position + move_dir.rotated(Vector3.UP, 1.5 * PI), Vector3.UP)
+				$Pivot.look_at(position + Vector3(move_dir.x, 0, move_dir.z).rotated(Vector3.UP, 1.5 * PI), Vector3.UP)
 				$AnimationPlayer.play("anim_player_wall_jump")
 			
 			# Wall climb.

@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cyyjc1lky7wyl"]
+[gd_scene load_steps=3 format=3 uid="uid://rsj81jg66oux"]
 
-[ext_resource type="Texture2D" uid="uid://xweaqalebno3" path="res://Textures/meter_num_0005.png" id="1_7vxwv"]
 [ext_resource type="Script" path="res://Scripts/meter_num.gd" id="1_jcyh2"]
+[ext_resource type="Texture2D" uid="uid://xweaqalebno3" path="res://textures/meter_num_0005.png" id="2_prqfe"]
 
 [node name="Number" type="MarginContainer"]
 anchors_preset = 3
@@ -18,5 +18,5 @@ script = ExtResource("1_jcyh2")
 
 [node name="Number" type="TextureRect" parent="."]
 layout_mode = 2
-texture = ExtResource("1_7vxwv")
+texture = ExtResource("2_prqfe")
 stretch_mode = 2

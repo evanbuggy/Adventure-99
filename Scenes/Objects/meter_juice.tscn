@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://b8x4lv48t0hge"]
+[gd_scene load_steps=2 format=3]
 
 [ext_resource type="Texture2D" uid="uid://bokeb1g8skrwl" path="res://Textures/Meter_Juice.png" id="1_xiudj"]
 

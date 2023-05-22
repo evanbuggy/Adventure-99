@@ -1,17 +1,18 @@
-[gd_scene load_steps=70 format=3 uid="uid://bbuj2hd6rhifi"]
+[gd_scene load_steps=70 format=3 uid="uid://465m0or5ipt0"]
 
 [ext_resource type="Script" path="res://Scripts/analog_control.gd" id="1_8arv5"]
-[ext_resource type="Texture2D" uid="uid://b1fekm7jdhvxi" path="res://Textures/tex_player_show.png" id="1_magvs"]
-[ext_resource type="Texture2D" uid="uid://cf5rbu84te6eo" path="res://Textures/tex_player_hair.png" id="2_3ofaf"]
-[ext_resource type="Texture2D" uid="uid://oyt28omd2yse" path="res://Textures/tex_player_face.png" id="3_b4f7h"]
-[ext_resource type="Texture2D" uid="uid://sgayhtil3s7l" path="res://Textures/tex_player_scarf_top.png" id="4_rsfq0"]
-[ext_resource type="Texture2D" uid="uid://dsjo4xtomkdom" path="res://Textures/tex_player_gun.png" id="5_811cj"]
-[ext_resource type="Texture2D" uid="uid://cdokvlw7mhykt" path="res://Textures/tex_player_scarf.png" id="6_p84rv"]
-[ext_resource type="Texture2D" uid="uid://c21c38m3p27mw" path="res://Textures/tex_player_jumper.png" id="7_psidt"]
+[ext_resource type="Texture2D" uid="uid://cgpgg26v5arlp" path="res://Textures/tex_player_show.png" id="1_magvs"]
+[ext_resource type="Texture2D" uid="uid://0mexmh3s1otb" path="res://Textures/tex_player_hair.png" id="2_3ofaf"]
+[ext_resource type="Texture2D" uid="uid://net5xrtvj4cw" path="res://Textures/tex_player_face.png" id="3_b4f7h"]
+[ext_resource type="Texture2D" uid="uid://dpb2n4w2dm1ex" path="res://Textures/tex_player_scarf_top.png" id="4_rsfq0"]
+[ext_resource type="Texture2D" uid="uid://cktswmrtjrfhh" path="res://Textures/tex_player_gun.png" id="5_811cj"]
+[ext_resource type="Texture2D" uid="uid://dkum3iggiymfp" path="res://Textures/tex_player_scarf.png" id="6_p84rv"]
+[ext_resource type="Texture2D" uid="uid://djsfth0dn65p1" path="res://Textures/tex_player_jumper.png" id="7_psidt"]
 [ext_resource type="Script" path="res://Scripts/camera_control.gd" id="9_8j63w"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_2x6qe"]
-size = Vector3(5, 12, 5)
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_muarh"]
+radius = 3.212
+height = 13.967
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_k3403"]
 size = Vector3(3, 3, 30)
@@ -1482,6 +1483,7 @@ tracks/18/keys = PackedFloat32Array(0, 1, -0.0412315, 0.0697739, 0.672435, 0.735
 [sub_resource type="Animation" id="Animation_d5pbg"]
 resource_name = "anim_player_run"
 length = 0.333333
+step = 0.0166667
 tracks/0/type = "position_3d"
 tracks/0/imported = true
 tracks/0/enabled = true
@@ -2178,11 +2180,12 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody3D"]
+floor_max_angle = 0.872665
 script = ExtResource("1_8arv5")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7547, 0)
-shape = SubResource("BoxShape3D_2x6qe")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.56546, -0.168611)
+shape = SubResource("CapsuleShape3D_muarh")
 
 [node name="Pivot" type="Node3D" parent="."]
 transform = Transform3D(2.31818e-07, 0, 3.88926, 0, 3.88926, 0, -3.88926, 0, 2.31818e-07, 0, 0, 0)
@@ -2197,16 +2200,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 17)
 shape = SubResource("BoxShape3D_k3403")
 
 [node name="Bone" type="Node3D" parent="Pivot"]
-transform = Transform3D(1, 0, 2.38418e-07, 0, 1, 0, -2.38418e-07, 0, 1, 3.8567e-09, -0.108264, -2.91173e-16)
+transform = Transform3D(0.965926, -0.258819, 2.32866e-07, 0.258819, 0.965926, 4.21668e-08, -2.35845e-07, 1.95401e-08, 1, 3.8567e-09, -0.0702103, -2.91173e-16)
 
 [node name="Bone005" type="Node3D" parent="Pivot/Bone"]
-transform = Transform3D(0.946167, -0.261697, -0.190489, -0.274722, -0.960469, -0.0450428, -0.171169, 0.0949478, -0.980673, 0.00282212, 0.0391371, 0.23611)
+transform = Transform3D(0.93644, -0.349525, -0.0302346, -0.350822, -0.932323, -0.0877479, 0.00248162, 0.092776, -0.995701, 0.00282212, 0.0391371, 0.23611)
 
 [node name="Bone006" type="Node3D" parent="Pivot/Bone/Bone005"]
-transform = Transform3D(0.895579, 0.444811, 0.00894388, -0.444345, 0.895286, -0.0319454, -0.0222169, 0.0246355, 0.99945, -5.72552e-09, 0.339651, 1.65921e-08)
+transform = Transform3D(0.762879, 0.646514, 0.00592502, -0.644186, 0.760851, -0.0782916, -0.0551246, 0.0559102, 0.996913, -5.72552e-09, 0.339651, 1.65921e-08)
 
 [node name="Bone007" type="Node3D" parent="Pivot/Bone/Bone005/Bone006"]
-transform = Transform3D(0.422373, -0.906211, -0.0195785, 0.903472, 0.419159, 0.089689, -0.0730706, -0.0555709, 0.995777, -6.38677e-08, 0.423781, 4.78477e-08)
+transform = Transform3D(0.167263, -0.984792, -0.0469881, 0.983353, 0.163208, 0.0798736, -0.0709901, -0.0595658, 0.995697, -6.38677e-08, 0.423781, 4.78477e-08)
 
 [node name="FootL" type="MeshInstance3D" parent="Pivot/Bone/Bone005/Bone006/Bone007"]
 transform = Transform3D(0.142878, -0.208344, -0.0478356, -0.20926, -0.14807, 0.0198759, 0.0436542, -0.0278876, 0.251841, 0.203529, 0.223095, 0.0499977)
@@ -2224,16 +2227,16 @@ mesh = SubResource("ArrayMesh_5umaw")
 skeleton = NodePath("")
 
 [node name="Bone001" type="Node3D" parent="Pivot/Bone"]
-transform = Transform3D(1, 0, -2.84218e-14, 0, 1, 0, 2.84218e-14, 0, 1, 2.98023e-08, 0.557865, 7.10543e-15)
+transform = Transform3D(0.994973, -0.100138, -0.00115824, 0.100135, 0.99497, -0.00259946, 0.00141272, 0.00247041, 0.999996, 2.98023e-08, 0.557865, 7.10543e-15)
 
 [node name="Bone002" type="Node3D" parent="Pivot/Bone/Bone001"]
-transform = Transform3D(0.961972, -0.209736, -0.174987, -0.27284, -0.707443, -0.651985, 0.0129517, 0.674935, -0.737765, 0.138908, 0.39693, 0.408758)
+transform = Transform3D(0.878536, -0.337809, -0.337727, -0.452129, -0.359947, -0.8161, 0.154122, 0.869669, -0.46896, 0.138908, 0.39693, 0.408758)
 
 [node name="Bone003" type="Node3D" parent="Pivot/Bone/Bone001/Bone002"]
-transform = Transform3D(0.999525, -0.0290248, -0.0103636, 0.0187568, 0.839707, -0.542715, 0.0244546, 0.542263, 0.839853, 7.8865e-08, 0.375359, -7.18335e-08)
+transform = Transform3D(0.753721, -0.604011, -0.258987, 0.442839, 0.757962, -0.478944, 0.48559, 0.246301, 0.838772, 7.8865e-08, 0.375359, -7.18335e-08)
 
 [node name="Bone004" type="Node3D" parent="Pivot/Bone/Bone001/Bone002/Bone003"]
-transform = Transform3D(0.99973, 0.0163627, 0.0164728, -0.0138705, 0.989851, -0.141436, -0.0186198, 0.141169, 0.98981, -5.13592e-08, 0.401647, 8.35704e-08)
+transform = Transform3D(0.990897, -0.1346, 0.00231635, 0.13443, 0.990268, 0.0360567, -0.00714704, -0.0354172, 0.999347, -5.13592e-08, 0.401647, 8.35704e-08)
 
 [node name="HandL" type="MeshInstance3D" parent="Pivot/Bone/Bone001/Bone002/Bone003/Bone004"]
 transform = Transform3D(0.000655341, -0.00513653, 0.177869, 0.0206658, -0.176664, -0.00517788, -0.176739, -0.0206761, 5.40708e-05, -0.00258815, 0.00692137, -0.0462905)
@@ -2251,7 +2254,7 @@ mesh = SubResource("ArrayMesh_m6i4q")
 skeleton = NodePath("")
 
 [node name="Bone008" type="Node3D" parent="Pivot/Bone/Bone001"]
-transform = Transform3D(1, -1.49012e-08, -2.38418e-07, 1.49012e-08, 1, 1.77637e-15, 2.38418e-07, -5.32907e-15, 1, 1.49012e-08, 0.696401, 3.10862e-15)
+transform = Transform3D(0.972388, 0.223476, -0.0672343, -0.22211, 0.974641, 0.0272463, 0.0716182, -0.0115606, 0.997365, 1.49012e-08, 0.696401, 3.10862e-15)
 
 [node name="Head" type="MeshInstance3D" parent="Pivot/Bone/Bone001/Bone008"]
 transform = Transform3D(0.630005, 0, 0, 0, 0.700975, 0, 0, 0, 0.630005, -0.397288, 0.364095, 0.000748295)
@@ -2264,13 +2267,13 @@ mesh = SubResource("ArrayMesh_0ig35")
 skeleton = NodePath("")
 
 [node name="Bone012" type="Node3D" parent="Pivot/Bone/Bone001"]
-transform = Transform3D(0.870967, -0.209737, 0.444326, -0.448868, -0.707442, 0.545933, 0.199833, -0.674934, -0.710303, 0.138908, 0.39693, -0.408758)
+transform = Transform3D(0.995529, -0.0824224, 0.0461223, -0.0825534, -0.522089, 0.848886, -0.0458873, -0.848899, -0.526559, 0.138908, 0.39693, -0.408758)
 
 [node name="Bone013" type="Node3D" parent="Pivot/Bone/Bone001/Bone012"]
-transform = Transform3D(-0.844163, 0.128198, 0.520531, -0.186876, 0.839708, -0.50987, -0.502458, -0.527689, -0.684894, -1.14564e-07, 0.375359, -9.51126e-09)
+transform = Transform3D(-0.820789, -0.507623, 0.261961, -0.569995, 0.757962, -0.317173, -0.0375516, -0.409649, -0.91147, -1.14564e-07, 0.375359, -9.51126e-09)
 
 [node name="Bone014" type="Node3D" parent="Pivot/Bone/Bone001/Bone012/Bone013"]
-transform = Transform3D(-0.338158, 0.028425, -0.94066, -0.121563, 0.989851, 0.0736124, 0.933204, 0.139243, -0.331271, 3.19779e-08, 0.401647, -3.33694e-08)
+transform = Transform3D(-0.317838, 0.116871, -0.940915, 0.109395, 0.990268, 0.0860478, 0.941812, -0.0755824, -0.32753, 3.19779e-08, 0.401647, -3.33694e-08)
 
 [node name="Bone015" type="Node3D" parent="Pivot/Bone/Bone001/Bone012/Bone013/Bone014"]
 transform = Transform3D(0.0325682, -0.0299492, -0.0232886, 0.0299491, 0.00145491, 0.0400117, -0.0232886, -0.0400117, 0.0188867, -6.76685e-08, 0.251418, 1.70603e-07)
@@ -2306,13 +2309,13 @@ mesh = SubResource("ArrayMesh_ypfvw")
 skeleton = NodePath("")
 
 [node name="Bone009" type="Node3D" parent="Pivot/Bone"]
-transform = Transform3D(0.945207, -0.261698, 0.195194, -0.274943, -0.960468, 0.0436761, 0.176044, -0.0949481, -0.979811, 0.0028222, 0.0391371, -0.23611)
+transform = Transform3D(0.627088, -0.775444, 0.0738118, -0.778945, -0.624563, 0.0562633, 0.00247109, -0.0927756, -0.995703, 0.0028222, 0.0391371, -0.23611)
 
 [node name="Bone010" type="Node3D" parent="Pivot/Bone/Bone009"]
-transform = Transform3D(0.895359, 0.444927, -0.0192734, -0.444145, 0.895286, 0.0346043, 0.0326516, -0.0224231, 0.999215, -4.04266e-08, 0.339651, -4.06107e-09)
+transform = Transform3D(0.831591, 0.555208, -0.0141404, -0.5525, 0.829593, 0.0807362, 0.0565561, -0.059327, 0.996635, -4.04266e-08, 0.339651, -4.06107e-09)
 
 [node name="Bone011" type="Node3D" parent="Pivot/Bone/Bone009/Bone010"]
-transform = Transform3D(0.411992, -0.905863, 0.0983653, 0.905354, 0.419158, 0.0681121, -0.102931, 0.0609939, 0.992817, 1.81281e-08, 0.423781, -3.21045e-08)
+transform = Transform3D(0.671339, -0.732994, 0.109652, 0.734251, 0.677911, 0.0362158, -0.10088, 0.0561991, 0.99331, 1.81281e-08, 0.423781, -3.21045e-08)
 
 [node name="FootR" type="MeshInstance3D" parent="Pivot/Bone/Bone009/Bone010/Bone011"]
 transform = Transform3D(0.148279, -0.210026, -0.00350395, -0.20926, -0.14807, 0.0198759, -0.0182538, -0.00861076, -0.25632, 0.209112, 0.223095, -0.0139996)

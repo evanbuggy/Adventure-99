@@ -1,9 +1,5 @@
-res://Scenes/Levels/lvl_creek.tscn
-res://world_env.tres
-res://Scenes/Particles/dust_footstep.tscn
 res://Scenes/Objects/player.tscn
-res://Scenes/Levels/Main.tscn
-res://Scripts/dust_footstep.gd
+res://Scenes/Levels/lvl_creek.tscn
+res://Scenes/Particles/collision_left.tscn
+res://Scenes/Particles/collision_right.tscn
 res://Scripts/analog_control.gd
-res://Scenes/Particles/3DPAR_dust_footstep.tscn
-res://Scenes/Models/creek.tscn

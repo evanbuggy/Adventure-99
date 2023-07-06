@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dmscn7uhdalgx"]
+[gd_scene load_steps=8 format=3 uid="uid://dmscn7uhdalgx"]
 
 [ext_resource type="PackedScene" path="res://Scenes/Objects/meter_juice.tscn" id="1_bxxua"]
 [ext_resource type="PackedScene" path="res://Scenes/Objects/meter.tscn" id="2_0m0bl"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bpyyfw4herrvm" path="res://Scenes/Models/creek.tscn" id="4_4drxd"]
 [ext_resource type="PackedScene" uid="uid://465m0or5ipt0" path="res://Scenes/Objects/player.tscn" id="5_1deql"]
 [ext_resource type="Environment" uid="uid://sq6fynppreqn" path="res://world_env.tres" id="6_pgmq4"]
+[ext_resource type="PackedScene" uid="uid://chht7iqtcj7cf" path="res://Scenes/Objects/item.tscn" id="7_6ddqj"]
 
 [node name="lvl_creek" type="Node"]
 
@@ -27,5 +28,8 @@ light_bake_mode = 0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("6_pgmq4")
+
+[node name="Item" parent="." instance=ExtResource("7_6ddqj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.3191, 21.1816, 51.2972)
 
 [connection signal="meter_change" from="Player" to="Number" method="_on_player_meter_change"]

@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://chht7iqtcj7cf"]
+
+[ext_resource type="Script" path="res://Item.gd" id="1_vubff"]
+[ext_resource type="Texture2D" uid="uid://c31t3bufewmbr" path="res://Textures/unemployed_combo_0000.png" id="2_edoj4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mj5w4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_edoj4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cro6i"]
+
+[node name="Item" type="Area3D"]
+script = ExtResource("1_vubff")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+billboard = 1
+sprite_frames = SubResource("SpriteFrames_mj5w4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.875, 0, 0, 0, 0.875, 0, 0, 0, 0.875, 0, 0, 0)
+shape = SubResource("BoxShape3D_cro6i")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

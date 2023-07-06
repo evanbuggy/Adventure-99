@@ -1,3 +1,6 @@
+Area3D
+CollisionShape3D
+AnimatedSprite3D
 GPUParticles3D
 MeshInstance3D
 Node3D
@@ -8,8 +11,6 @@ TextureRect
 MarginContainer
 AnimatedSprite2D
 Control
-CollisionShape3D
-Area3D
 Camera3D
 SpringArm3D
 Skeleton3D

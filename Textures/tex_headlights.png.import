@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b53iua12uqi4u"
-path.s3tc="res://.godot/imported/tex_headlights.png-941f2efe8671b1c7bbeb6917bd22ba1b.s3tc.ctex"
+path.s3tc="res://.godot/imported/tex_headlights.png-0582e8bb7fc6497692cacd8c881ddec1.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Textures/tex_headlights.png"
-dest_files=["res://.godot/imported/tex_headlights.png-941f2efe8671b1c7bbeb6917bd22ba1b.s3tc.ctex"]
+source_file="res://textures/tex_headlights.png"
+dest_files=["res://.godot/imported/tex_headlights.png-0582e8bb7fc6497692cacd8c881ddec1.s3tc.ctex"]
 
 [params]
 

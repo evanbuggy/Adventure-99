@@ -1,7 +1,8 @@
-res://Item.gd
 res://Scenes/Objects/player.tscn
-res://Scenes/Levels/lvl_creek.tscn
 res://Scenes/Particles/collision_left.tscn
 res://Scenes/Particles/collision_right.tscn
-res://Scenes/Objects/car.tscn
-res://Scenes/Objects/item.tscn
+res://Scenes/Levels/lvl_creek.tscn
+res://scenes/objects/player.tscn
+res://scenes/levels/lvl_creek.tscn
+res://scenes/particles/collision_left.tscn
+res://scenes/particles/collision_right.tscn

@@ -1,14 +1,14 @@
 [gd_scene load_steps=21 format=3 uid="uid://p10j7c0eedfa"]
 
-[ext_resource type="PackedScene" path="res://Scenes/Objects/meter_juice.tscn" id="1_3wpdr"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/meter.tscn" id="1_asjep"]
-[ext_resource type="PackedScene" uid="uid://465m0or5ipt0" path="res://Scenes/Objects/player.tscn" id="1_e506i"]
-[ext_resource type="Texture2D" uid="uid://bs7jlir3xgopd" path="res://Textures/test_tex2.png" id="2_f18dv"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/purro.tscn" id="2_p3d08"]
-[ext_resource type="PackedScene" uid="uid://rsj81jg66oux" path="res://Scenes/Objects/meter_num.tscn" id="2_sl52b"]
+[ext_resource type="PackedScene" path="res://scenes/objects/meter_juice.tscn" id="1_3wpdr"]
+[ext_resource type="PackedScene" path="res://scenes/objects/meter.tscn" id="1_asjep"]
+[ext_resource type="PackedScene" uid="uid://465m0or5ipt0" path="res://scenes/objects/player.tscn" id="1_e506i"]
+[ext_resource type="Texture2D" uid="uid://bs7jlir3xgopd" path="res://textures/test_tex2.png" id="2_f18dv"]
+[ext_resource type="PackedScene" path="res://scenes/objects/purro.tscn" id="2_p3d08"]
+[ext_resource type="PackedScene" uid="uid://rsj81jg66oux" path="res://scenes/objects/meter_num.tscn" id="2_sl52b"]
 [ext_resource type="Environment" uid="uid://sq6fynppreqn" path="res://world_env.tres" id="3"]
-[ext_resource type="Texture2D" uid="uid://d3eimf7dg2jao" path="res://Textures/test_tex1.png" id="3_tqytb"]
-[ext_resource type="Texture2D" uid="uid://c8tthj3sx0pej" path="res://Textures/test_tex3.png" id="6_hxtuf"]
+[ext_resource type="Texture2D" uid="uid://d3eimf7dg2jao" path="res://textures/test_tex1.png" id="3_tqytb"]
+[ext_resource type="Texture2D" uid="uid://c8tthj3sx0pej" path="res://textures/test_tex3.png" id="6_hxtuf"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_r10ts"]
 

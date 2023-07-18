@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://bpyyfw4herrvm"]
 
-[ext_resource type="Texture2D" uid="uid://5jlh764157nd" path="res://Textures/test_tex_stone.png" id="1_qcthj"]
-[ext_resource type="Texture2D" uid="uid://qsypvjf7bt04" path="res://Textures/test_tex_grass.png" id="2_nswhg"]
+[ext_resource type="Texture2D" uid="uid://5jlh764157nd" path="res://textures/test_tex_stone.png" id="1_qcthj"]
+[ext_resource type="Texture2D" uid="uid://qsypvjf7bt04" path="res://textures/test_tex_grass.png" id="2_nswhg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qvd7d"]
 resource_name = "tex_test_stone"

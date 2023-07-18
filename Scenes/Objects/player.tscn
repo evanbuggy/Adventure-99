@@ -1,14 +1,14 @@
 [gd_scene load_steps=70 format=3 uid="uid://465m0or5ipt0"]
 
-[ext_resource type="Script" path="res://Scripts/analog_control.gd" id="1_8arv5"]
-[ext_resource type="Texture2D" uid="uid://cgpgg26v5arlp" path="res://Textures/tex_player_show.png" id="1_magvs"]
-[ext_resource type="Texture2D" uid="uid://0mexmh3s1otb" path="res://Textures/tex_player_hair.png" id="2_3ofaf"]
-[ext_resource type="Texture2D" uid="uid://net5xrtvj4cw" path="res://Textures/tex_player_face.png" id="3_b4f7h"]
-[ext_resource type="Texture2D" uid="uid://dpb2n4w2dm1ex" path="res://Textures/tex_player_scarf_top.png" id="4_rsfq0"]
-[ext_resource type="Texture2D" uid="uid://cktswmrtjrfhh" path="res://Textures/tex_player_gun.png" id="5_811cj"]
-[ext_resource type="Texture2D" uid="uid://dkum3iggiymfp" path="res://Textures/tex_player_scarf.png" id="6_p84rv"]
-[ext_resource type="Texture2D" uid="uid://djsfth0dn65p1" path="res://Textures/tex_player_jumper.png" id="7_psidt"]
-[ext_resource type="Script" path="res://Scripts/camera_control.gd" id="9_8j63w"]
+[ext_resource type="Script" path="res://scripts/analog_control.gd" id="1_3p67n"]
+[ext_resource type="Texture2D" uid="uid://cgpgg26v5arlp" path="res://textures/tex_player_show.png" id="2_yovbq"]
+[ext_resource type="Texture2D" uid="uid://0mexmh3s1otb" path="res://textures/tex_player_hair.png" id="3_oguxl"]
+[ext_resource type="Texture2D" uid="uid://net5xrtvj4cw" path="res://textures/tex_player_face.png" id="4_ayus1"]
+[ext_resource type="Texture2D" uid="uid://dpb2n4w2dm1ex" path="res://textures/tex_player_scarf_top.png" id="5_vmmb2"]
+[ext_resource type="Texture2D" uid="uid://cktswmrtjrfhh" path="res://textures/tex_player_gun.png" id="6_m8l6b"]
+[ext_resource type="Texture2D" uid="uid://dkum3iggiymfp" path="res://textures/tex_player_scarf.png" id="7_j24jb"]
+[ext_resource type="Texture2D" uid="uid://djsfth0dn65p1" path="res://textures/tex_player_jumper.png" id="8_5wugq"]
+[ext_resource type="Script" path="res://scripts/camera_control.gd" id="9_5sh43"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_muarh"]
 radius = 3.212
@@ -21,7 +21,7 @@ size = Vector3(3, 3, 30)
 resource_name = "Show"
 cull_mode = 2
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("1_magvs")
+albedo_texture = ExtResource("2_yovbq")
 roughness = 0.5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_ye7lp"]
@@ -231,14 +231,14 @@ shadow_mesh = SubResource("ArrayMesh_oktqp")
 resource_name = "Hair"
 cull_mode = 2
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("2_3ofaf")
+albedo_texture = ExtResource("3_oguxl")
 roughness = 0.5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tviby"]
 resource_name = "Face"
 cull_mode = 2
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("3_b4f7h")
+albedo_texture = ExtResource("4_ayus1")
 roughness = 0.5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_d4nsm"]
@@ -297,7 +297,7 @@ shadow_mesh = SubResource("ArrayMesh_d4nsm")
 resource_name = "Scarf Top"
 cull_mode = 2
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("4_rsfq0")
+albedo_texture = ExtResource("5_vmmb2")
 roughness = 0.5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_kuh3x"]
@@ -336,7 +336,7 @@ shadow_mesh = SubResource("ArrayMesh_kuh3x")
 resource_name = "Gun"
 cull_mode = 2
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("5_811cj")
+albedo_texture = ExtResource("6_m8l6b")
 roughness = 0.5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_vntnc"]
@@ -465,7 +465,7 @@ shadow_mesh = SubResource("ArrayMesh_ewhtn")
 resource_name = "Scarf Bottom"
 cull_mode = 2
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("6_p84rv")
+albedo_texture = ExtResource("7_j24jb")
 roughness = 0.5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_u1ktq"]
@@ -502,7 +502,7 @@ shadow_mesh = SubResource("ArrayMesh_u1ktq")
 resource_name = "Jumper"
 cull_mode = 2
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("7_psidt")
+albedo_texture = ExtResource("8_5wugq")
 roughness = 0.5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_a3ynx"]
@@ -2181,7 +2181,7 @@ _data = {
 
 [node name="Player" type="CharacterBody3D"]
 floor_max_angle = 0.872665
-script = ExtResource("1_8arv5")
+script = ExtResource("1_3p67n")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.56546, -0.168611)
@@ -2345,6 +2345,6 @@ libraries = {
 [node name="SpringArm3D" type="SpringArm3D" parent="."]
 spring_length = 50.0
 margin = 1.0
-script = ExtResource("9_8j63w")
+script = ExtResource("9_5sh43")
 
 [node name="Camera3D" type="Camera3D" parent="SpringArm3D"]

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b3v422pov44sf"
-path.s3tc="res://.godot/imported/tex_car_vent.png-a5976b65885310e7576d4cca1cbeacf0.s3tc.ctex"
+path.s3tc="res://.godot/imported/tex_car_vent.png-86f13199405826ef1719a13d4c41ba21.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Textures/tex_car_vent.png"
-dest_files=["res://.godot/imported/tex_car_vent.png-a5976b65885310e7576d4cca1cbeacf0.s3tc.ctex"]
+source_file="res://textures/tex_car_vent.png"
+dest_files=["res://.godot/imported/tex_car_vent.png-86f13199405826ef1719a13d4c41ba21.s3tc.ctex"]
 
 [params]
 

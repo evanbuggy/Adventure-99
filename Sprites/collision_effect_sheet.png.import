@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://5g076hsvswxj"
-path.s3tc="res://.godot/imported/collision_effect_sheet.png-2172b20f42c9392b8580a51f0e42d801.s3tc.ctex"
+path.s3tc="res://.godot/imported/collision_effect_sheet.png-8cdca19aadc297a78a328a499ddfef5f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Sprites/collision_effect_sheet.png"
-dest_files=["res://.godot/imported/collision_effect_sheet.png-2172b20f42c9392b8580a51f0e42d801.s3tc.ctex"]
+source_file="res://sprites/collision_effect_sheet.png"
+dest_files=["res://.godot/imported/collision_effect_sheet.png-8cdca19aadc297a78a328a499ddfef5f.s3tc.ctex"]
 
 [params]
 

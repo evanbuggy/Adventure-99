@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://el5v5rjmnk22"
-path="res://.godot/imported/test_tex_metal.png-a01336f94af350110edb101b42bf92f6.ctex"
+path="res://.godot/imported/test_tex_metal.png-ad00f26e3e652965dae73789c24cc1f6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/test_tex_metal.png"
-dest_files=["res://.godot/imported/test_tex_metal.png-a01336f94af350110edb101b42bf92f6.ctex"]
+source_file="res://textures/test_tex_metal.png"
+dest_files=["res://.godot/imported/test_tex_metal.png-ad00f26e3e652965dae73789c24cc1f6.ctex"]
 
 [params]
 

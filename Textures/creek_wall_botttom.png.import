@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b4cqlxd7hm4es"
-path="res://.godot/imported/creek_wall_botttom.png-f85c1136909d9702df5c6b32adb0a538.ctex"
+path="res://.godot/imported/creek_wall_botttom.png-401e405d879b287191fc07b97aae36a3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/creek_wall_botttom.png"
-dest_files=["res://.godot/imported/creek_wall_botttom.png-f85c1136909d9702df5c6b32adb0a538.ctex"]
+source_file="res://textures/creek_wall_botttom.png"
+dest_files=["res://.godot/imported/creek_wall_botttom.png-401e405d879b287191fc07b97aae36a3.ctex"]
 
 [params]
 

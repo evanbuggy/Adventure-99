@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://djsfth0dn65p1"
-path.s3tc="res://.godot/imported/tex_player_jumper.png-ad2e817bac35d5eb73f14ff692dd4cef.s3tc.ctex"
+path.s3tc="res://.godot/imported/tex_player_jumper.png-76d880d9bda1a3b63774d616f8844b99.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Textures/tex_player_jumper.png"
-dest_files=["res://.godot/imported/tex_player_jumper.png-ad2e817bac35d5eb73f14ff692dd4cef.s3tc.ctex"]
+source_file="res://textures/tex_player_jumper.png"
+dest_files=["res://.godot/imported/tex_player_jumper.png-76d880d9bda1a3b63774d616f8844b99.s3tc.ctex"]
 
 [params]
 

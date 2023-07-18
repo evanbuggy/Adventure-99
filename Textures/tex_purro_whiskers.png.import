@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ce6msk1o1bed8"
-path.s3tc="res://.godot/imported/tex_purro_whiskers.png-4142e420f9fe0b4ab17975c7bc94af9e.s3tc.ctex"
+path.s3tc="res://.godot/imported/tex_purro_whiskers.png-82e3982feffd92f66a8c435cc6a0975a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Textures/tex_purro_whiskers.png"
-dest_files=["res://.godot/imported/tex_purro_whiskers.png-4142e420f9fe0b4ab17975c7bc94af9e.s3tc.ctex"]
+source_file="res://textures/tex_purro_whiskers.png"
+dest_files=["res://.godot/imported/tex_purro_whiskers.png-82e3982feffd92f66a8c435cc6a0975a.s3tc.ctex"]
 
 [params]
 

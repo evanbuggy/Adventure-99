@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://2or2yiajlcef"
-path.s3tc="res://.godot/imported/tex_car_seat.png-4454b37b4bb685e77478681ec992985d.s3tc.ctex"
+path.s3tc="res://.godot/imported/tex_car_seat.png-48aa67d7e90ee4c73ead7ddcc0a57670.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Textures/tex_car_seat.png"
-dest_files=["res://.godot/imported/tex_car_seat.png-4454b37b4bb685e77478681ec992985d.s3tc.ctex"]
+source_file="res://textures/tex_car_seat.png"
+dest_files=["res://.godot/imported/tex_car_seat.png-48aa67d7e90ee4c73ead7ddcc0a57670.s3tc.ctex"]
 
 [params]
 

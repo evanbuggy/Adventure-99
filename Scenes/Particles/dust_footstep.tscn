@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://rv2k5bok1b3s"]
 
-[ext_resource type="Texture2D" uid="uid://cvrvcxe4gi5bd" path="res://Sprites/dust_footsteps_sheet.png" id="1_7cwmp"]
-[ext_resource type="Script" path="res://Scripts/dust_footstep.gd" id="2_0afmn"]
+[ext_resource type="Texture2D" uid="uid://cvrvcxe4gi5bd" path="res://sprites/dust_footsteps_sheet.png" id="1_7cwmp"]
+[ext_resource type="Script" path="res://scripts/dust_footstep.gd" id="2_0afmn"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mdhd4"]
 gravity = Vector3(0, 0, 0)

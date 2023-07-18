@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cvrvcxe4gi5bd"
-path.s3tc="res://.godot/imported/dust_footsteps_sheet.png-65fb39b4be6b05a3a623f7bee431774e.s3tc.ctex"
+path.s3tc="res://.godot/imported/dust_footsteps_sheet.png-d0c350e07d1b4730db9b34983793474c.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Sprites/dust_footsteps_sheet.png"
-dest_files=["res://.godot/imported/dust_footsteps_sheet.png-65fb39b4be6b05a3a623f7bee431774e.s3tc.ctex"]
+source_file="res://sprites/dust_footsteps_sheet.png"
+dest_files=["res://.godot/imported/dust_footsteps_sheet.png-d0c350e07d1b4730db9b34983793474c.s3tc.ctex"]
 
 [params]
 

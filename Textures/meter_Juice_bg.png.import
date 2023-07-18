@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cp54w0rshiwll"
-path="res://.godot/imported/meter_Juice_bg.png-b24a3826c5a31d7b2601bdf4baeb9511.ctex"
+path="res://.godot/imported/Meter_Juice_bg.png-d40f2b8b3e0687bfbf89ea15aeace6d0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/meter_Juice_bg.png"
-dest_files=["res://.godot/imported/meter_Juice_bg.png-b24a3826c5a31d7b2601bdf4baeb9511.ctex"]
+source_file="res://textures/Meter_Juice_bg.png"
+dest_files=["res://.godot/imported/Meter_Juice_bg.png-d40f2b8b3e0687bfbf89ea15aeace6d0.ctex"]
 
 [params]
 

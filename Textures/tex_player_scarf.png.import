@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dkum3iggiymfp"
-path.s3tc="res://.godot/imported/tex_player_scarf.png-bc67fba5f9139b8e8dc8e88d37b455e7.s3tc.ctex"
+path.s3tc="res://.godot/imported/tex_player_scarf.png-9d5363872806cb1549876963744806a8.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Textures/tex_player_scarf.png"
-dest_files=["res://.godot/imported/tex_player_scarf.png-bc67fba5f9139b8e8dc8e88d37b455e7.s3tc.ctex"]
+source_file="res://textures/tex_player_scarf.png"
+dest_files=["res://.godot/imported/tex_player_scarf.png-9d5363872806cb1549876963744806a8.s3tc.ctex"]
 
 [params]
 

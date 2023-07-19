@@ -11,7 +11,7 @@ signal meter_change(meter)
 @export var move_speed := 0
 @export var move_previous_input := Vector3.ZERO
 @export var move_skid := 0
-@export var move_gravity := 300
+@export var move_gravity := 500
 @export var move_shoot_timer := 0
 @export var move_landing := 0
 @export var vec_store := 0
@@ -92,7 +92,7 @@ func _physics_process(delta):
 		# ! There is definitely a better way of doing this as of now.
 		# ! Too much repetition between the code for the normal jump and cartwheel jump.
 		if Input.is_action_just_pressed("pad_jump") && move_skid == 0:
-			move_velocity.y = 120
+			move_velocity.y = 180
 			move_snap = 0
 			anim_store = "anim_player_jump"
 			anim_frame_count = 5
@@ -200,14 +200,9 @@ func _physics_process(delta):
 			# Wall jump.
 			if Input.is_action_just_pressed("pad_jump"):
 				anim_frame_count = 0
-				move_velocity.y = 80
+				move_velocity.y = 120
 				move_dir = move_dir.bounce(get_wall_normal())
 				vec_store = 0
-				print("move_dir")
-				print(move_dir)
-				print("move_dir_rotated")
-				print(move_dir.rotated(Vector3.UP, (2 * PI) - cache_spring_arm.rotation.y))
-				print($SpringArm3D/Camera3D.global_position)
 				if move_dir.rotated(Vector3.UP, (2 * PI) - cache_spring_arm.rotation.y).x >= 0:
 					add_child(collision_left.instantiate())
 				else:

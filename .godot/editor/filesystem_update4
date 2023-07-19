@@ -1,8 +1,6 @@
-res://Scenes/Objects/player.tscn
-res://Scenes/Particles/collision_left.tscn
-res://Scenes/Particles/collision_right.tscn
-res://Scenes/Levels/lvl_creek.tscn
-res://scenes/objects/player.tscn
 res://scenes/levels/lvl_creek.tscn
-res://scenes/particles/collision_left.tscn
-res://scenes/particles/collision_right.tscn
+res://scenes/levels/LVL_SchoolOutside.tscn
+res://scripts/analog_control.gd
+res://world_env.tres
+res://scenes/models/school_exterior.tscn
+res://scenes/objects/player.tscn

@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://n44axhogj5xt"]
+
+[ext_resource type="PackedScene" uid="uid://crdtvuh0sbkwm" path="res://scenes/models/school_exterior.tscn" id="1_xlhta"]
+[ext_resource type="PackedScene" uid="uid://465m0or5ipt0" path="res://scenes/objects/player.tscn" id="2_885em"]
+[ext_resource type="Environment" uid="uid://sq6fynppreqn" path="res://world_env.tres" id="3_vpx5k"]
+[ext_resource type="Texture2D" uid="uid://c3fg30h7oupjk" path="res://textures/BrickWall_Warm.png" id="4_hc8e0"]
+
+[node name="LVL_SchoolOutside" type="Node3D"]
+
+[node name="school_exterior" parent="." instance=ExtResource("1_xlhta")]
+transform = Transform3D(30.52, 0, 0, 0, 30.52, 0, 0, 0, 30.52, 0, 0, 0)
+
+[node name="Player" parent="." instance=ExtResource("2_885em")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -254.692, 101.985, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.462096, 0.782903, 0.416569, 0.838379, 0.232521, 0.493006, 0.289115, 0.577059, -0.763817, -59, 407.327, -323.87)
+light_energy = 2.366
+light_bake_mode = 0
+directional_shadow_mode = 0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("3_vpx5k")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+offset_right = 64.0
+offset_bottom = 64.0
+texture = ExtResource("4_hc8e0")

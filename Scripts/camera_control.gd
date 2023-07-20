@@ -8,6 +8,9 @@ func _ready():
 func _physics_process(_delta):
 	rotation_degrees.y -= (Input.get_action_strength("cam_stick_right") - Input.get_action_strength("cam_stick_left"))
 	rotation_degrees.x -= (Input.get_action_strength("cam_stick_down") - Input.get_action_strength("cam_stick_up"))
+	rotation_degrees.x = clamp(rotation_degrees.x, -90.0, 30.0)
+	rotation_degrees.y = wrapf(rotation_degrees.y, 0.0, 360.0)
+	print(rotation)
 
 func _unhandled_input(event: InputEvent):
 	

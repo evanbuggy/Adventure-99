@@ -2348,3 +2348,4 @@ margin = 1.0
 script = ExtResource("9_5sh43")
 
 [node name="Camera3D" type="Camera3D" parent="SpringArm3D"]
+fov = 60.0

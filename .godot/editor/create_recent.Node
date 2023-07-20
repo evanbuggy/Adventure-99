@@ -1,7 +1,8 @@
+AspectRatioContainer
+DirectionalLight3D
 CanvasLayer
 Control
 TextureRect
-DirectionalLight3D
 Node3D
 StaticBody3D
 OmniLight3D

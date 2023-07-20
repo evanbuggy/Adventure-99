@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://n44axhogj5xt"]
+[gd_scene load_steps=6 format=3 uid="uid://n44axhogj5xt"]
 
 [ext_resource type="PackedScene" uid="uid://crdtvuh0sbkwm" path="res://scenes/models/school_exterior.tscn" id="1_xlhta"]
 [ext_resource type="PackedScene" uid="uid://465m0or5ipt0" path="res://scenes/objects/player.tscn" id="2_885em"]
+[ext_resource type="Texture2D" uid="uid://dx2br7h7eqbnk" path="res://textures/TEST_SM64SeaBG.jpg" id="3_3lx8n"]
 [ext_resource type="Environment" uid="uid://sq6fynppreqn" path="res://world_env.tres" id="3_vpx5k"]
-[ext_resource type="Texture2D" uid="uid://c3fg30h7oupjk" path="res://textures/BrickWall_Warm.png" id="4_hc8e0"]
+[ext_resource type="Script" path="res://Scripts/SkyboxMovement.gd" id="4_f6f40"]
 
 [node name="LVL_SchoolOutside" type="Node3D"]
 
@@ -13,18 +14,31 @@ transform = Transform3D(30.52, 0, 0, 0, 30.52, 0, 0, 0, 30.52, 0, 0, 0)
 [node name="Player" parent="." instance=ExtResource("2_885em")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -254.692, 101.985, 0)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.462096, 0.782903, 0.416569, 0.838379, 0.232521, 0.493006, 0.289115, 0.577059, -0.763817, -59, 407.327, -323.87)
-light_energy = 2.366
-light_bake_mode = 0
-directional_shadow_mode = 0
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = -0.616667
+anchor_top = -0.8
+anchor_right = 1.55
+anchor_bottom = 1.84375
+grow_horizontal = 2
+grow_vertical = 2
+ratio = 1.4855
+stretch_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/AspectRatioContainer"]
+layout_mode = 2
+texture = ExtResource("3_3lx8n")
+script = ExtResource("4_f6f40")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("3_vpx5k")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.783899, -0.310444, 0.537705, -5.93629e-10, 0.866025, 0.5, -0.620888, -0.39195, 0.678877, -59, 407.327, 593.684)
+light_energy = 1.171
+light_bake_mode = 0
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
-offset_right = 64.0
-offset_bottom = 64.0
-texture = ExtResource("4_hc8e0")
+[connection signal="send_cam_rotation" from="Player" to="CanvasLayer/AspectRatioContainer/TextureRect" method="_on_player_send_cam_rotation"]

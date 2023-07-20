@@ -4,6 +4,7 @@ signal current_velocity(player_velocity)
 signal current_dir(player_dir)
 signal current_speed(player_speed)
 signal meter_change(meter)
+signal send_cam_rotation(cam_rotation)
 
 # Initial Variables. Mainly focused around movement
 @export var move_input := Vector3.ZERO
@@ -24,9 +25,9 @@ signal meter_change(meter)
 @export var allowed_to_recharge := true
 @export var move_velocity := Vector3.ZERO
 var move_snap := 0
-var dust = preload("res://Scenes/Particles/dust_footstep.tscn")
-var collision_left = preload("res://Scenes/Particles/collision_left.tscn")
-var collision_right = preload("res://Scenes/Particles/collision_right.tscn")
+var dust = preload("res://scenes/particles/dust_footstep.tscn")
+var collision_left = preload("res://scenes/particles/collision_left.tscn")
+var collision_right = preload("res://scenes/particles/collision_right.tscn")
 
 # Caches SpringArm3D.
 @onready var cache_spring_arm: SpringArm3D = $SpringArm3D
@@ -39,6 +40,10 @@ func _ready():
 	InputMap.action_set_deadzone("stick_down", 0.1)
 
 func _physics_process(delta):
+	# Sends Camera Rotation every frame.
+	emit_signal("send_cam_rotation", $SpringArm3D.rotation)
+	print($SpringArm3D.rotation)
+	
 	# Handles meter recharging.
 	if meter_charge < 500 && meter < 5 && allowed_to_recharge:
 		meter_charge += 1

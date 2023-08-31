@@ -1,3 +1,5 @@
+CharacterBody3D
+Node
 AspectRatioContainer
 DirectionalLight3D
 CanvasLayer
@@ -12,10 +14,8 @@ AnimatedSprite3D
 GPUParticles3D
 MeshInstance3D
 GPUParticles2D
-CharacterBody3D
 MarginContainer
 AnimatedSprite2D
 Camera3D
 SpringArm3D
 Skeleton3D
-Node

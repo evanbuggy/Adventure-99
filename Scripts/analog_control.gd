@@ -40,9 +40,14 @@ func _ready():
 	InputMap.action_set_deadzone("stick_down", 0.1)
 
 func _physics_process(delta):
+	# Calculates the magnitude of move_input every frame.
+	var MOV_InputMag = Vector3.ZERO.distance_to(move_input)
+	
+	# Calculates how high the player's speed should be when inputting via the control stick.
+	var MOV_MaxInputSpeed = MOV_InputMag * 90
+	
 	# Sends Camera Rotation every frame.
 	emit_signal("send_cam_rotation", $SpringArm3D.rotation)
-	print($SpringArm3D.rotation)
 	
 	# Handles meter recharging.
 	if meter_charge < 500 && meter < 5 && allowed_to_recharge:
@@ -78,9 +83,6 @@ func _physics_process(delta):
 			$Pivot/Area3D.set_collision_layer_value(2, true)
 	
 	if is_on_floor():
-		# Checks to see if the player switches direction fast enough to apply deceleration.
-		if (move_input.x - move_previous_input.x > 0.3 || move_input.x - move_previous_input.x < -0.3 || move_input.z - move_previous_input.z > 0.3 || move_input.z - move_previous_input.z < -0.3) && move_speed > 13:
-			move_skid = 1
 			
 		# Resetting the snap vector.
 		if move_snap == 0:
@@ -103,7 +105,7 @@ func _physics_process(delta):
 			anim_frame_count = 5
 		
 		if Vector2.ZERO.distance_to(Vector2(move_velocity.x, move_velocity.z)) > 100 && Input.is_action_just_pressed("pad_shoulder_l") && meter >= 2:
-			move_velocity.y = 110
+			move_velocity.y = 200
 			move_snap = 0
 			vec_store = 1
 			meter -= 2
@@ -115,7 +117,7 @@ func _physics_process(delta):
 		
 		# Moves the player if not skidding. Extra deadzone added here.
 		if Vector3.ZERO.distance_to(move_input) > 0.1 * sqrt(2.0) && move_skid == 0:
-			move_dir = move_input
+			move_dir = move_input.normalized()
 			# Sets where the player has to look.
 			$Pivot.look_at(position + move_input.rotated(Vector3.UP, 1.5 * PI), Vector3.UP)
 			
@@ -130,18 +132,21 @@ func _physics_process(delta):
 					$AnimationPlayer.play("anim_player_walk")
 			
 			# Increments or decreases the move speed depending on if the player is accelerating or not.
-			if move_speed < 70:
+			if move_speed < MOV_MaxInputSpeed:
 				move_speed += 2
 			else:
 				move_speed -= 2
 		else:
 			# Timer begins for the landing animation. If over, play idle animation.
-			if move_shoot_timer == 0:
-				if move_landing != 0:
-					move_landing -= 1
-					$AnimationPlayer.play("anim_player_land")
-				else:
-					$AnimationPlayer.play("anim_player_idle")
+			if move_skid == 0:
+				if move_shoot_timer == 0:
+					if move_landing != 0:
+						move_landing -= 1
+						$AnimationPlayer.play("anim_player_land")
+					else:
+						$AnimationPlayer.idle()
+			else:
+				$AnimationPlayer.play("ANIM_PlayerSkid")
 			
 			# Decelerates the player.
 			if move_speed > 0:
@@ -169,7 +174,7 @@ func _physics_process(delta):
 			if air_dash_uses == 2:
 				anim_frame_count = 0
 				move_dir = move_input
-				move_speed = 110
+				move_speed = 150
 				move_velocity.y = 50
 				vec_store = 0
 				air_dash_uses -= 1
@@ -197,7 +202,7 @@ func _physics_process(delta):
 			emit_signal("meter_change", meter)
 			allowed_to_recharge = false
 			move_velocity.y -= 90
-			move_speed += 20
+			move_speed += 50
 			meter_charge = -200
 			$AnimationPlayer.play("anim_player_dive")
 		

@@ -1,18 +1,18 @@
 [gd_scene load_steps=6 format=3 uid="uid://n44axhogj5xt"]
 
+[ext_resource type="PackedScene" uid="uid://defx7vbi21kt2" path="res://scenes/objects/OBJ_Player.tscn" id="1_fe6u4"]
 [ext_resource type="PackedScene" uid="uid://crdtvuh0sbkwm" path="res://scenes/models/school_exterior.tscn" id="1_xlhta"]
-[ext_resource type="PackedScene" uid="uid://465m0or5ipt0" path="res://scenes/objects/player.tscn" id="2_885em"]
 [ext_resource type="Texture2D" uid="uid://dx2br7h7eqbnk" path="res://textures/TEST_SM64SeaBG.jpg" id="3_3lx8n"]
 [ext_resource type="Environment" uid="uid://sq6fynppreqn" path="res://world_env.tres" id="3_vpx5k"]
 [ext_resource type="Script" path="res://Scripts/SkyboxMovement.gd" id="4_f6f40"]
 
 [node name="LVL_SchoolOutside" type="Node3D"]
 
+[node name="player" parent="." instance=ExtResource("1_fe6u4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -173.423, 114.305, -106.313)
+
 [node name="school_exterior" parent="." instance=ExtResource("1_xlhta")]
 transform = Transform3D(30.52, 0, 0, 0, 30.52, 0, 0, 0, 30.52, 0, 0, 0)
-
-[node name="Player" parent="." instance=ExtResource("2_885em")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -254.692, 101.985, 0)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -41,4 +41,4 @@ transform = Transform3D(0.783899, -0.310444, 0.537705, -5.93629e-10, 0.866025, 0
 light_energy = 1.171
 light_bake_mode = 0
 
-[connection signal="send_cam_rotation" from="Player" to="CanvasLayer/AspectRatioContainer/TextureRect" method="_on_player_send_cam_rotation"]
+[connection signal="send_cam_rotation" from="player" to="CanvasLayer/AspectRatioContainer/TextureRect" method="_on_player_send_cam_rotation"]

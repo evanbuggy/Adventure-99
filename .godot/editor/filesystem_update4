@@ -1,8 +1,5 @@
-res://scenes/levels/lvl_creek.tscn
+res://scenes/objects/OBJ_Player.tscn
 res://world_env.tres
+res://scripts/PlayerIdle.gd
+res://scripts/PlayerMover.gd
 res://scenes/levels/LVL_SchoolOutside.tscn
-res://scenes/models/school_exterior.tscn
-res://scenes/objects/player.tscn
-res://Scripts/SkyboxMovement.gd
-res://scripts/analog_control.gd
-res://scripts/camera_control.gd

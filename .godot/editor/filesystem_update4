@@ -1,5 +1,5 @@
-res://scenes/objects/OBJ_Player.tscn
-res://world_env.tres
-res://scripts/PlayerIdle.gd
-res://scripts/PlayerMover.gd
 res://scenes/levels/LVL_SchoolOutside.tscn
+res://world_env.tres
+res://scenes/objects/OBJ_Player.tscn
+res://scripts/PlayerMover.gd
+res://scripts/state/STM_Player.gd

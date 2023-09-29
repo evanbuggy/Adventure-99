@@ -1,4 +1,4 @@
 extends StatePlayer
 
-func Update():
-	
+func Update(delta: float):
+	print("update")

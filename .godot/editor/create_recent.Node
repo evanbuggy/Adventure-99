@@ -1,5 +1,5 @@
-CharacterBody3D
 Node
+CharacterBody3D
 AspectRatioContainer
 DirectionalLight3D
 CanvasLayer

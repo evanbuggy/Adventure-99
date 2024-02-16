@@ -1,60 +1,49 @@
-extends StatePlayer
+# Generic state machine. Initializes states and delegates engine callbacks
+# (_physics_process, _unhandled_input) to the active state.
+class_name StateMachine
+extends Node
 
-@export var initial_state : StatePlayer
+# Emitted when transitioning to a new state.
+signal transitioned(state_name)
 
-var current_state : StatePlayer
-var states : Dictionary = {}
+# Path to the initial active state. We export it to be able to pick the initial state in the inspector.
+@export var initial_state := NodePath()
 
-func _ready():
+# The current active state. At the start of the game, we get the `initial_state`.
+@onready var state: State = get_node(initial_state)
+
+
+func _ready() -> void:
+	# The state machine assigns itself to the State objects' state_machine property.
 	for child in get_children():
-		states[child.name] = child
-		child.Change.connect(on_child_transition)
-	
-	if initial_state:
-		initial_state.Enter()
-		current_state = initial_state
-	
-	InputMap.action_set_deadzone("stick_left", 0.1)
-	InputMap.action_set_deadzone("stick_right", 0.1)
-	InputMap.action_set_deadzone("stick_up", 0.1)
-	InputMap.action_set_deadzone("stick_down", 0.1)
+		child.state_machine = self
+	state.enter()
 
-func _process(delta):
-	if current_state:
-		current_state.Update(delta)
 
-func _physics_process(delta):
-	if current_state:
-		current_state.PhysUpdate(delta)
+# The state machine subscribes to node callbacks and delegates them to the state objects.
+func _unhandled_input(event: InputEvent) -> void:
+	state.handle_input(event)
 
-	MOV_InputMag = Vector3.ZERO.distance_to(move_input)
-	
-	# Calculates how high the player's speed should be when inputting via the control stick.
-	MOV_MaxInputSpeed = MOV_InputMag * 90
-	
-	# Handles what direction is being inputted.
-	move_input.x = Input.get_action_strength("stick_right") - Input.get_action_strength("stick_left")
-	move_input.z = Input.get_action_strength("stick_down") - Input.get_action_strength("stick_up")
-	
-	if Vector3.ZERO.distance_to(move_input) > 0.1 * sqrt(2.0):
-		move_dir = move_input
-		if move_speed < MOV_MaxInputSpeed:
-			move_speed += 2
-		else:
-			move_speed -= 2
-	else:
-		if move_speed > 0:
-			move_speed -= 2
-	
-	move_velocity.x = move_dir.x * move_speed
-	move_velocity.z = move_dir.z * move_speed
-	move_velocity.y -= move_gravity * delta
 
-func on_child_transition(state, new_state_name):
-	if state != current_state:
+func _process(delta: float) -> void:
+	state.update(delta)
+
+
+func _physics_process(delta: float) -> void:
+	state.physics_update(delta)
+
+
+# This function calls the current state's exit() function, then changes the active state,
+# and calls its enter function.
+# It optionally takes a `msg` dictionary to pass to the next state's enter() function.
+func transition_to(target_state_name: String, msg: Dictionary = {}) -> void:
+	# Safety check, you could use an assert() here to report an error if the state name is incorrect.
+	# We don't use an assert here to help with code reuse. If you reuse a state in different state machines
+	# but you don't want them all, they won't be able to transition to states that aren't in the scene tree.
+	if not has_node(target_state_name):
 		return
-	
-	var new_state = states.get(new_state_name)
-	if current_state:
-		current_state.exit()
-	new_state.enter()
+
+	state.exit()
+	state = get_node(target_state_name)
+	state.enter(msg)
+	emit_signal("transitioned", state.name)

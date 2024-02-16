@@ -1,15 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://n44axhogj5xt"]
+[gd_scene load_steps=5 format=3 uid="uid://n44axhogj5xt"]
 
-[ext_resource type="PackedScene" uid="uid://defx7vbi21kt2" path="res://scenes/objects/OBJ_Player.tscn" id="1_fe6u4"]
 [ext_resource type="PackedScene" uid="uid://crdtvuh0sbkwm" path="res://scenes/models/school_exterior.tscn" id="1_xlhta"]
 [ext_resource type="Texture2D" uid="uid://dx2br7h7eqbnk" path="res://textures/TEST_SM64SeaBG.jpg" id="3_3lx8n"]
 [ext_resource type="Environment" uid="uid://sq6fynppreqn" path="res://world_env.tres" id="3_vpx5k"]
 [ext_resource type="Script" path="res://Scripts/SkyboxMovement.gd" id="4_f6f40"]
 
 [node name="LVL_SchoolOutside" type="Node3D"]
-
-[node name="player" parent="." instance=ExtResource("1_fe6u4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -173.423, 114.305, -106.313)
 
 [node name="school_exterior" parent="." instance=ExtResource("1_xlhta")]
 transform = Transform3D(30.52, 0, 0, 0, 30.52, 0, 0, 0, 30.52, 0, 0, 0)
